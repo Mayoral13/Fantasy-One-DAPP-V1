@@ -1,0 +1,80 @@
+
+.matchcenter-field .player {
+    position: absolute;
+    border: 60px solid transparent;
+    display: none;
+    background-image:url("../players/DefaultQ/portrait.png");
+    background-repeat: no-repeat;
+    background-size: 150px 150px 150px 150px; 
+    z-index: 1;
+}
+
+@media (max-width:720px){
+    .matchcenter-field .player {
+        position: absolute;
+        border: 30px solid transparent;
+        display: none;
+        background-image:url("../players/LowQ/portrait.png");
+        background-repeat: no-repeat;
+        background-size: 75px 75px 75px 75px; 
+        z-index: 1;
+    }
+}
+@media (max-width:962px){
+    .matchcenter-field .player {
+        position: absolute;
+        border: 60px solid transparent;
+        display: none;
+        background-image:url("../players/LowQ/portrait.png");
+        background-repeat: no-repeat;
+        background-size: 100px 100px 100px 100px; 
+        z-index: 1;
+    }
+}
+    @media (max-width:480px){
+        .matchcenter-field .player {
+            position: absolute;
+            border: 30px solid transparent;
+            display: none;
+            background-image:url("../players/LowQ/portrait.png");
+            background-repeat: no-repeat;
+            background-size: 75px 75px 75px 75px; 
+            z-index: 1;
+        }
+    }
+    @media (min-width:1025px) and (max-width:1199px){
+        #matchfield{
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+    }
+    @media (max-width:767px){
+        #matchfield{
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+

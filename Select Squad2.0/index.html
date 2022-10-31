@@ -596,9 +596,9 @@ function selectMahrez(){
     else {
         web3 = new Web3(new Web3.providers.HttpProvider("https://polygon-testnet.public.blastapi.io"));
     }
-    var leagueaddress = "0x8275015BCb1667a4EFA3bC002A480870A7e5D445";
-    var squadaddress = "0xB673d741d93E73832B8c7bA235643CFcfef2a4c9";
-    var marketaddress = "0x8C65207D7935E32299801Ce34C5Cd2a9FcFeBFe7";
+    var leagueaddress = "0xB9C5f192C6fE4870058539B0Ae9a2014Ed1FaeBe";
+    var squadaddress = "0x2D114Efe257dAF2537510822532C9f4b36bD1Aa8";
+    var marketaddress = "0x45b0e6E92Aca90d1277197B12c216238614F3362";
     var squadabi =  [
     {
       "inputs": [
@@ -1629,7 +1629,7 @@ function selectMahrez(){
       "type": "function",
       "constant": true
     }
-  ];   
+  ];
        var abi = [
     {
       "inputs": [
@@ -1972,117 +1972,117 @@ function selectMahrez(){
     var swapcontract = new web3.eth.Contract(squadabi,squadaddress);
 
     async function Signup(){
-        const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+        const accounts = await ethereum.request({method: 'eth_requestAccounts'});
         const account = accounts[0];
         const tx = await signupcontract.methods.SignUp().send({from:account});
         alert("You have Signed Up");
     }
-    async function Approve(){
-        const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
-        const account = accounts[0];
-        const approve = await swapcontract.methods.approve(marketaddress,100).send({from:account});
-    }
     async function Connect(){
-    if(window.ethereum){
-       await window.ethereum.request({method: "eth_requestAccounts"});
-       window.ethereum = new Web3(window.ethereum);
-       const account = ethereum.eth.accounts;
-       const walletAddress = account.givenProvider.selectedAddress;
-       console.log("Wallet Address is :",walletAddress.toString());
+    if(ethereum){
+      let account;
+       await ethereum.request({method: "eth_requestAccounts"}).then(accounts =>{
+        account = accounts[0];
+       });
     }else {
         alert("No Web3 Browser Detected");
     }
 }
+    async function Approve(){
+        const accounts = await ethereum.request({method: 'eth_requestAccounts'});
+        const account = accounts[0];
+        const approve = await swapcontract.methods.approve(marketaddress,100).send({from:account});
+    }
+
   async function Select1(){
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(1).send({from:account});
     alert("You Have Added Leno To Squad");
   } 
   async function Select2(){
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(2).send({from:account});
     alert("You Have Added Henderson To Squad");
 }
 async function Select3(){
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(3).send({from:account});
     alert("You Have Added Gabriel To Squad");
 }
 async function Select4(){
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(4).send({from:account}); 
     alert("You Have Added Robertson To Squad");
 }
 async function Select5(){
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(5).send({from:account});
     alert("You Have Added Sessegnon To Squad");
 }
 async function Select6(){
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(6).send({from:account});
     alert("You Have Added Trippier To Squad");
 }
 async function Select7(){
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(7).send({from:account});
     alert("You Have Added Coady To Squad");
 }
 async function Select8(){
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(8).send({from:account});
     alert("You Have Added Son To Squad");
 }
 async function Select9(){
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(9).send({from:account});
     alert("You Have Added Neves To Squad");
 }
 async function Select10(){
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(10).send({from:account});
     alert("You Have Added Bernardo Silva To Squad");
 }
 async function Select11(){
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(11).send({from:account});
     alert("You Have Added Kante To Squad");
 }
 async function Select12(){
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(12).send({from:account});
     alert("You Have Added Mahrez To Squad");
 }
 async function Select13(){
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(13).send({from:account});
     alert("You Have Added Haaland To Squad");
 }
 async function Select14(){
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(14).send({from:account});
     alert("You Have Added Rashford To Squad");
 }
 async function Select15(){
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(15).send({from:account});
     alert("You Have Added Watkins To Squad");
-    // WORK
+    
 }
 
 let signup = document.getElementById("signup");

@@ -418,10 +418,10 @@
     else {
         web3 = new Web3(new Web3.providers.HttpProvider("https://polygon-testnet.public.blastapi.io"));
     }
-    var squadaddress = "0xB673d741d93E73832B8c7bA235643CFcfef2a4c9";
-    var fanaddress = "0x66cAb150A7496dd397435Fed635D61fCF17E86da";
-    var leagueaddress = "0x8275015BCb1667a4EFA3bC002A480870A7e5D445";
-    var squadabi =[
+    var squadaddress = "0x2D114Efe257dAF2537510822532C9f4b36bD1Aa8";
+    var fanaddress = "0x5f57f562CD35D140fFEbA02a9a2E48d0e19EdEb4";
+    var leagueaddress = "0xB9C5f192C6fE4870058539B0Ae9a2014Ed1FaeBe";
+    var squadabi = [
     {
       "inputs": [
         {
@@ -1084,35 +1084,7 @@
     },
     {
       "inputs": [],
-      "name": "TokeninCirculation",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function",
-      "constant": true
-    },
-    {
-      "inputs": [],
       "name": "VendorBalance",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
-      "type": "function",
-      "constant": true
-    },
-    {
-      "inputs": [],
-      "name": "TokenBalance",
       "outputs": [
         {
           "internalType": "uint256",
@@ -1479,7 +1451,7 @@
     var swapcontract = new web3.eth.Contract(squadabi,squadaddress);
     var request = new web3.eth.Contract(fanabi,fanaddress);
     async function Swap(){
-        const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+        const accounts = await ethereum.request({method: 'eth_requestAccounts'});
         const account = accounts[0];
         const tx = await swapcontract.methods.Swap().send({from:account});
         if(tx){
@@ -1487,29 +1459,28 @@
         }
     }
     async function Approve(){
-        const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+        const accounts = await ethereum.request({method: 'eth_requestAccounts'});
         const account = accounts[0];
         const approve = await request.methods.approve(squadaddress,1500).send({from:account});
     }
     async function Request(){
-        const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+        const accounts = await ethereum.request({method: 'eth_requestAccounts'});
         const account = accounts[0];
         const tx = await request.methods.RequestTokens().send({from:account});
         alert("You have just recieved 1500 Tokens");
     }
     async function Signup(){
-        const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+        const accounts = await ethereum.request({method: 'eth_requestAccounts'});
         const account = accounts[0];
         const tx = await signupcontract.methods.SignUp().send({from:account});
         alert("You have Signed Up");
     }
     async function Connect(){
-    if(window.ethereum){
-       await window.ethereum.request({method: "eth_requestAccounts"});
-       window.ethereum = new Web3(window.ethereum);
-       const account = ethereum.eth.accounts;
-       const walletAddress = account.givenProvider.selectedAddress;
-       console.log("Wallet Address is :",walletAddress.toString());
+    if(ethereum){
+      let account;
+       await ethereum.request({method: "eth_requestAccounts"}).then(accounts =>{
+        account = accounts[0];
+       });
     }else {
         alert("No Web3 Browser Detected");
     }

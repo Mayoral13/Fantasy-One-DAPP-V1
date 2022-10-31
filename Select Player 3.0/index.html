@@ -543,8 +543,8 @@ function selectMahrez(){
     else {
         web3 = new Web3(new Web3.providers.HttpProvider("https://polygon-testnet.public.blastapi.io"));
     }
-    var leagueaddress = "0x8275015BCb1667a4EFA3bC002A480870A7e5D445";
-    var marketaddress = "0x8C65207D7935E32299801Ce34C5Cd2a9FcFeBFe7";
+    var leagueaddress = "0xB9C5f192C6fE4870058539B0Ae9a2014Ed1FaeBe";
+    var marketaddress = "0x45b0e6E92Aca90d1277197B12c216238614F3362";
     var marketabi =  [
     {
       "inputs": [
@@ -1594,25 +1594,24 @@ function selectMahrez(){
     var marketcontract = new web3.eth.Contract(marketabi,marketaddress); 
 
     async function Signup(){
-        const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+        const accounts = await ethereum.request({method: 'eth_requestAccounts'});
         const account = accounts[0];
         const tx = await signupcontract.methods.SignUp().send({from:account});
         alert("You have Signed Up");
     }
     async function Connect(){
-    if(window.ethereum){
-       await window.ethereum.request({method: "eth_requestAccounts"});
-       window.ethereum = new Web3(window.ethereum);
-       const account = ethereum.eth.accounts;
-       const walletAddress = account.givenProvider.selectedAddress;
-       console.log("Wallet Address is :",walletAddress.toString());
+    if(ethereum){
+      let account;
+       await ethereum.request({method: "eth_requestAccounts"}).then(accounts =>{
+        account = accounts[0];
+       });
     }else {
         alert("No Web3 Browser Detected");
     }
 }
   async function Select1(error){
     let gk = document.getElementById("player1");
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectPlayers(1).send({from:account});
     if(!error){
@@ -1625,7 +1624,7 @@ alert("You have selected Leno");
   } 
   async function Select2(error){
     let gk1 = document.getElementById("player1");
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectPlayers(2).send({from:account});
     if(!error){
@@ -1638,7 +1637,7 @@ alert("You have selected Henderson");
 }
 async function Select3(error){
     let cb1 = document.getElementById("player4");
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectPlayers(3).send({from:account});
     if(!error){
@@ -1651,7 +1650,7 @@ alert("You have selected Gabriel");
 }
 async function Select4(error){
     let lb = document.getElementById("player2");
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectPlayers(4).send({from:account});
     if(!error){
@@ -1664,7 +1663,7 @@ alert("You have selected Robertson");
 }
 async function Select5(error){
     let rb2 = document.getElementById("player5");
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectPlayers(5).send({from:account});
     if(!error){
@@ -1677,7 +1676,7 @@ alert("You have selected Sessegnon");
 }
 async function Select6(error){
     let rb1 = document.getElementById("player5");
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectPlayers(6).send({from:account});
     if(!error){
@@ -1690,7 +1689,7 @@ alert("You have selected Trippier");
 }
 async function Select7(error){
     let cb2 = document.getElementById("player3");
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectPlayers(7).send({from:account});
     if(!error){
@@ -1703,7 +1702,7 @@ alert("You have selected Coady");
 }
 async function Select8(error){
     let lm = document.getElementById("player6");
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectPlayers(8).send({from:account});
     if(!error){
@@ -1716,7 +1715,7 @@ alert("You have selected Son");
 }
 async function Select9(error){
     let cm1 = document.getElementById("player7");
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectPlayers(9).send({from:account});
     if(!error){
@@ -1729,7 +1728,7 @@ alert("You have selected Neves");
 }
 async function Select10(error){
     let cm2 = document.getElementById("player8");
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectPlayers(10).send({from:account});
     if(!error){
@@ -1742,7 +1741,7 @@ alert("You have selected Bernardo Silva");
 }
 async function Select11(error){
     let cm3 = document.getElementById("player7");
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectPlayers(11).send({from:account});
     if(!error){
@@ -1755,7 +1754,7 @@ alert("You have selected Kante");
 }
 async function Select12(error){
     let rm = document.getElementById("player9");
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectPlayers(12).send({from:account});
     if(!error){
@@ -1768,7 +1767,7 @@ alert("You have selected Mahrez");
 }
 async function Select13(error){
         let st2 = document.getElementById("player10");
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectPlayers(13).send({from:account});
     if(!error){
@@ -1781,7 +1780,7 @@ alert("You have selected Haaland");
 }
 async function Select14(error){
             let st1 = document.getElementById("player9");
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectPlayers(14).send({from:account});
     if(!error){
@@ -1794,7 +1793,7 @@ alert("You have selected Rashford");
 }
 async function Select15(error){
     let st3 = document.getElementById("player11");
-    const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+    const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectPlayers(15).send({from:account});
     if(!error){
@@ -1806,7 +1805,7 @@ async function Select15(error){
 alert("You have selected Watkins");  
 }
 async function Submit(){
-  const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+  const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SubmitTeam().send({from:account});
     alert("You have recieved 50 $Baller Tokens");

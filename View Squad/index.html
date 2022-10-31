@@ -158,8 +158,8 @@
     else {
         web3 = new Web3(new Web3.providers.HttpProvider("https://polygon-testnet.public.blastapi.io"));
     }
-    var leagueaddress = "0x8275015BCb1667a4EFA3bC002A480870A7e5D445";
-    var marketaddress = "0x8C65207D7935E32299801Ce34C5Cd2a9FcFeBFe7";
+    var leagueaddress = "0xB9C5f192C6fE4870058539B0Ae9a2014Ed1FaeBe";
+    var marketaddress = "0x45b0e6E92Aca90d1277197B12c216238614F3362";
     var marketabi = [
     {
       "inputs": [
@@ -1208,13 +1208,23 @@
     var marketcontract = new web3.eth.Contract(marketabi,marketaddress); 
 
     async function Signup(){
-        const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+        const accounts = await ethereum.request({method: 'eth_requestAccounts'});
         const account = accounts[0];
         const tx = await signupcontract.methods.SignUp().send({from:account});
         alert("You have Signed Up");
     }
+    async function Connect(){
+    if(ethereum){
+      let account;
+       await ethereum.request({method: "eth_requestAccounts"}).then(accounts =>{
+        account = accounts[0];
+       });
+    }else {
+        alert("No Web3 Browser Detected");
+    }
+}
     async function View(){
-        const accounts = await window.ethereum.request({method: 'eth_requestAccounts'});
+        const accounts = await ethereum.request({method: 'eth_requestAccounts'});
         const account = accounts[0];    
         let nft = document.getElementById("nft");                        
         const tx = await marketcontract.methods.ViewSquad().call({from:account});
@@ -1230,17 +1240,7 @@
     }
     ToGrid();
   }
-    async function Connect(){
-    if(window.ethereum){
-       await window.ethereum.request({method: "eth_requestAccounts"});
-       window.ethereum = new Web3(window.ethereum);
-       const account = ethereum.eth.accounts;
-       const walletAddress = account.givenProvider.selectedAddress;
-       console.log("Wallet Address is :",walletAddress.toString());
-    }else {
-        alert("No Web3 Browser Detected");
-    }
-}
+  
 let nft = document.getElementById("nft");
 function ToGrid(){
   nft.style.display = "grid";

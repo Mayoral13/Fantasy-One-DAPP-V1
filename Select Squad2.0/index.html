@@ -496,8 +496,7 @@ const media = window.matchMedia("(max-width:720px)");
   }
   function selectLeno(){
     let leno = document.getElementById("leno");
-    leno.addEventListener("click",()=>{
-        Approve(),Select1()});
+    leno.addEventListener("click",()=>{Select1()});
 }
     
 selectLeno();
@@ -505,84 +504,84 @@ selectLeno();
 
 function selectHenderson(){
     let henderson = document.getElementById("henderson");
-    henderson.addEventListener("click",()=>{Approve(),Select2()});
+    henderson.addEventListener("click",()=>{Select2()});
 }
 selectHenderson();
 
 function selectGabriel(){
     let gabriel = document.getElementById("gabriel");
-    gabriel.addEventListener("click",()=>{Approve(),Select3()});
+    gabriel.addEventListener("click",()=>{Select3()});
 }
 selectGabriel();
 
 function selectRobertson(){
     let robertson = document.getElementById("robertson");
-    robertson.addEventListener("click",()=>{Approve(),Select4()});
+    robertson.addEventListener("click",()=>{Select4()});
 }
 selectRobertson();
 
 function selectSessegnon(){
     let sessegnon = document.getElementById("sessegnon");
-    sessegnon.addEventListener("click",()=>{Approve(),Select5()});
+    sessegnon.addEventListener("click",()=>{Select5()});
 }
 selectSessegnon();
 
 function selectTrippier(){
     let trippier = document.getElementById("trippier");
-    trippier.addEventListener("click",()=>{Approve(),Select6()});
+    trippier.addEventListener("click",()=>{Select6()});
 }
 selectTrippier();
 
 function selectCoady(){
     let coady = document.getElementById("coady");
-    coady.addEventListener("click",()=>{Approve(),Select7()});
+    coady.addEventListener("click",()=>{Select7()});
 }
 selectCoady();
 
 function selectSon(){
     let son = document.getElementById("son");
-    son.addEventListener("click",()=>{Approve(),Select8()});
+    son.addEventListener("click",()=>{Select8()});
 }
 selectSon();
 function selectNeves(){
     let neves = document.getElementById("neves");
-    neves.addEventListener("click",()=>{Approve(),Select9()});
+    neves.addEventListener("click",()=>{Select9()});
 }
 selectNeves();
 
 function selectBernardo(){
     let bernardo = document.getElementById("silva");
-    bernardo.addEventListener("click",()=>{Approve(),Select10()});
+    bernardo.addEventListener("click",()=>{Select10()});
 }
 selectBernardo();
 
 function selectKante(){
     let kante = document.getElementById("kante");
-    kante.addEventListener("click",()=>{Approve(),Select11()});
+    kante.addEventListener("click",()=>{Select11()});
       }
 selectKante();
 
 function selectMahrez(){
     let mahrez = document.getElementById("mahrez");
-    mahrez.addEventListener("click",()=>{Approve(),Select12()});
+    mahrez.addEventListener("click",()=>{Select12()});
 }
     selectMahrez();
 
     function selectHaaland(){
         let haaland = document.getElementById("haaland");
-          haaland.addEventListener("click",()=>{Approve(),Select13()});
+          haaland.addEventListener("click",()=>{Select13()});
         }
         selectHaaland();
 
         function selectRashford(){
             let rashford = document.getElementById("rashford");
-            rashford.addEventListener("click",()=>{Approve(),Select14()});
+            rashford.addEventListener("click",()=>{Select14()});
             }
             selectRashford();
            
             function selectWatkins(){
             let watkins = document.getElementById("watkins");
-            watkins.addEventListener("click",()=>{Approve(),Select15()});
+            watkins.addEventListener("click",()=>{Select15()});
         }
         selectWatkins();
  
@@ -596,9 +595,9 @@ function selectMahrez(){
     else {
         web3 = new Web3(new Web3.providers.HttpProvider("https://polygon-testnet.public.blastapi.io"));
     }
-    var leagueaddress = "0xa9a4BB01192bDf61175463e2592Fee834F0715d7";
-    var squadaddress = "0x37606d2331353c7Faa35aA2944205E796dE266e3";
-    var marketaddress = "0x4b6f6767c2E99d4dEc4303475e32050C82F0E0Ba";
+    var leagueaddress = "0xF0474aC6f92C7BDb9908207c7A2B0E76a7f17866";
+    var squadaddress = "0x1BC1E38D646f893313B8d79A25859a9B0Ff154F0";
+    var marketaddress = "0xC8BfF3149e5DF592f4F084a79a27ebAC67D73904";
     var squadabi =  [
     {
       "inputs": [
@@ -923,7 +922,7 @@ function selectMahrez(){
       "type": "function"
     }
   ];
-    var marketabi =   [
+    var marketabi =  [
     {
       "inputs": [
         {
@@ -1629,7 +1628,7 @@ function selectMahrez(){
       "type": "function",
       "constant": true
     }
-  ];
+  ]; 
        var abi = [
     {
       "inputs": [
@@ -1990,94 +1989,109 @@ function selectMahrez(){
     async function Approve(){
         const accounts = await ethereum.request({method: 'eth_requestAccounts'});
         const account = accounts[0];
-        const approve = await swapcontract.methods.approve(marketaddress,100).send({from:account});
+        const approve = await swapcontract.methods.approve(marketaddress,"10000000000000000000000000000").send({from:account});
     }
 
   async function Select1(){
+    await Approve();
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(1).send({from:account});
     alert("You Have Added Leno To Squad");
   } 
   async function Select2(){
+    await Approve();
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(2).send({from:account});
     alert("You Have Added Henderson To Squad");
 }
 async function Select3(){
+  await Approve();
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(3).send({from:account});
     alert("You Have Added Gabriel To Squad");
 }
 async function Select4(){
+  await Approve();
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(4).send({from:account}); 
     alert("You Have Added Robertson To Squad");
 }
 async function Select5(){
+  await Approve();
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(5).send({from:account});
     alert("You Have Added Sessegnon To Squad");
 }
 async function Select6(){
+  await Approve();
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(6).send({from:account});
     alert("You Have Added Trippier To Squad");
 }
 async function Select7(){
+  await Approve();
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(7).send({from:account});
     alert("You Have Added Coady To Squad");
 }
 async function Select8(){
+  await Approve();
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(8).send({from:account});
     alert("You Have Added Son To Squad");
 }
 async function Select9(){
+  await Approve();
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(9).send({from:account});
     alert("You Have Added Neves To Squad");
 }
 async function Select10(){
+  await Approve();
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(10).send({from:account});
     alert("You Have Added Bernardo Silva To Squad");
 }
 async function Select11(){
+  await Approve();
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(11).send({from:account});
     alert("You Have Added Kante To Squad");
 }
 async function Select12(){
+  await Approve();
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(12).send({from:account});
     alert("You Have Added Mahrez To Squad");
 }
 async function Select13(){
+  await Approve();
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(13).send({from:account});
     alert("You Have Added Haaland To Squad");
 }
 async function Select14(){
+  await Approve();
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(14).send({from:account});
     alert("You Have Added Rashford To Squad");
 }
 async function Select15(){
+  await Approve();
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SelectSquad(15).send({from:account});

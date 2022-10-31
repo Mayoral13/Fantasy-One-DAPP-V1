@@ -1808,7 +1808,7 @@ async function Submit(){
   const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SubmitTeam().send({from:account});
-    alert("You have recieved 50 $Baller Tokens");
+    alert("You have recieved a lot of token");
     //work
 }
 let signup = document.getElementById("signup");

@@ -595,9 +595,9 @@ function selectMahrez(){
     else {
         web3 = new Web3(new Web3.providers.HttpProvider("https://polygon-testnet.public.blastapi.io"));
     }
-    var leagueaddress = "0xF0474aC6f92C7BDb9908207c7A2B0E76a7f17866";
-    var squadaddress = "0x1BC1E38D646f893313B8d79A25859a9B0Ff154F0";
-    var marketaddress = "0xC8BfF3149e5DF592f4F084a79a27ebAC67D73904";
+    var leagueaddress = "0xC6D84Cb158cE6C0DF1Fe48D12343aCBD1D306c5D";
+    var squadaddress = "0xd82d758f02dAbEC1Fc68898AF6643f35E4dc122A";
+    var marketaddress = "0x340fE7412b582d39619BCC0Eb2Ecc7d7cF709F38";
     var squadabi =  [
     {
       "inputs": [
@@ -1477,9 +1477,16 @@ function selectMahrez(){
         }
       ],
       "name": "SelectPlayers",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [

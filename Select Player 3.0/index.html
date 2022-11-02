@@ -543,8 +543,8 @@ function selectMahrez(){
     else {
         web3 = new Web3(new Web3.providers.HttpProvider("https://polygon-testnet.public.blastapi.io"));
     }
-    var leagueaddress = "0xF0474aC6f92C7BDb9908207c7A2B0E76a7f17866";
-    var marketaddress = "0xC8BfF3149e5DF592f4F084a79a27ebAC67D73904";
+    var leagueaddress = "0xC6D84Cb158cE6C0DF1Fe48D12343aCBD1D306c5D";
+    var marketaddress = "0x340fE7412b582d39619BCC0Eb2Ecc7d7cF709F38";
     var marketabi =  [
     {
       "inputs": [
@@ -1100,9 +1100,16 @@ function selectMahrez(){
         }
       ],
       "name": "SelectPlayers",
-      "outputs": [],
-      "stateMutability": "nonpayable",
-      "type": "function"
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -1613,7 +1620,7 @@ function selectMahrez(){
     let gk = document.getElementById("player1");
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
-    const tx = await marketcontract.methods.SelectPlayers(1).send({from:account});
+    const tx = await marketcontract.methods.SelectPlayers(1).call({from:account});
     if(!error){
     if(media.matches){
           gk.style.backgroundImage = "url(./players/LowQ/1-Leno.png)";
@@ -1626,7 +1633,7 @@ alert("You have selected Leno");
     let gk1 = document.getElementById("player1");
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
-    const tx = await marketcontract.methods.SelectPlayers(2).send({from:account});
+    const tx = await marketcontract.methods.SelectPlayers(2).call({from:account});
     if(!error){
       if(media.matches){
       gk1.style.backgroundImage = "url(./players/LowQ/2-Henderson.png)";
@@ -1639,7 +1646,7 @@ async function Select3(error){
     let cb1 = document.getElementById("player4");
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
-    const tx = await marketcontract.methods.SelectPlayers(3).send({from:account});
+    const tx = await marketcontract.methods.SelectPlayers(3).call({from:account});
     if(!error){
       if(media.matches){
         cb1.style.backgroundImage = "url(./players/LowQ/3-Gabriel.png)";
@@ -1652,7 +1659,7 @@ async function Select4(error){
     let lb = document.getElementById("player2");
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
-    const tx = await marketcontract.methods.SelectPlayers(4).send({from:account});
+    const tx = await marketcontract.methods.SelectPlayers(4).call({from:account});
     if(!error){
       if(media.matches){
         lb.style.backgroundImage = "url(./players/LowQ/4-Robertson.png)";
@@ -1665,7 +1672,7 @@ async function Select5(error){
     let rb2 = document.getElementById("player5");
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
-    const tx = await marketcontract.methods.SelectPlayers(5).send({from:account});
+    const tx = await marketcontract.methods.SelectPlayers(5).call({from:account});
     if(!error){
       if(media.matches){
         rb2.style.backgroundImage = "url(./players/LowQ/5-Sessegnon.png)";
@@ -1678,7 +1685,7 @@ async function Select6(error){
     let rb1 = document.getElementById("player5");
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
-    const tx = await marketcontract.methods.SelectPlayers(6).send({from:account});
+    const tx = await marketcontract.methods.SelectPlayers(6).call({from:account});
     if(!error){
       if(media.matches){
         rb1.style.backgroundImage = "url(./players/LowQ/6-Trippier.png)";
@@ -1691,7 +1698,7 @@ async function Select7(error){
     let cb2 = document.getElementById("player3");
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
-    const tx = await marketcontract.methods.SelectPlayers(7).send({from:account});
+    const tx = await marketcontract.methods.SelectPlayers(7).call({from:account});
     if(!error){
       if(media.matches){
         cb2.style.backgroundImage = "url(./players/LowQ/7-Coady.png)";
@@ -1704,7 +1711,7 @@ async function Select8(error){
     let lm = document.getElementById("player6");
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
-    const tx = await marketcontract.methods.SelectPlayers(8).send({from:account});
+    const tx = await marketcontract.methods.SelectPlayers(8).call({from:account});
     if(!error){
       if(media.matches){
         lm.style.backgroundImage = "url(./players/LowQ/8-Son.png)";
@@ -1717,7 +1724,7 @@ async function Select9(error){
     let cm1 = document.getElementById("player7");
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
-    const tx = await marketcontract.methods.SelectPlayers(9).send({from:account});
+    const tx = await marketcontract.methods.SelectPlayers(9).call({from:account});
     if(!error){
       if(media.matches){
         cm1.style.backgroundImage = "url(./players/LowQ/9-Neves.png)";
@@ -1730,7 +1737,7 @@ async function Select10(error){
     let cm2 = document.getElementById("player8");
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
-    const tx = await marketcontract.methods.SelectPlayers(10).send({from:account});
+    const tx = await marketcontract.methods.SelectPlayers(10).call({from:account});
     if(!error){
       if(media.matches){
         cm2.style.backgroundImage = "url(./players/LowQ/10-Bernardo.png)";
@@ -1743,7 +1750,7 @@ async function Select11(error){
     let cm3 = document.getElementById("player7");
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
-    const tx = await marketcontract.methods.SelectPlayers(11).send({from:account});
+    const tx = await marketcontract.methods.SelectPlayers(11).call({from:account});
     if(!error){
       if(media.matches){
         cm3.style.backgroundImage = "url(./players/LowQ/11-Kante.png)";
@@ -1756,7 +1763,7 @@ async function Select12(error){
     let rm = document.getElementById("player9");
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
-    const tx = await marketcontract.methods.SelectPlayers(12).send({from:account});
+    const tx = await marketcontract.methods.SelectPlayers(12).call({from:account});
     if(!error){
       if(media.matches){
         rm.style.backgroundImage = "url(./players/LowQ/12-Mahrez.png)";
@@ -1769,7 +1776,7 @@ async function Select13(error){
         let st2 = document.getElementById("player10");
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
-    const tx = await marketcontract.methods.SelectPlayers(13).send({from:account});
+    const tx = await marketcontract.methods.SelectPlayers(13).call({from:account});
     if(!error){
       if(media.matches){
         st2.style.backgroundImage = "url(./players/LowQ/13-Haaland.png)";
@@ -1782,7 +1789,7 @@ async function Select14(error){
             let st1 = document.getElementById("player9");
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
-    const tx = await marketcontract.methods.SelectPlayers(14).send({from:account});
+    const tx = await marketcontract.methods.SelectPlayers(14).call({from:account});
     if(!error){
       if(media.matches){
         st1.style.backgroundImage = "url(./players/LowQ/14-Rashford.png)";
@@ -1795,7 +1802,7 @@ async function Select15(error){
     let st3 = document.getElementById("player11");
     const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
-    const tx = await marketcontract.methods.SelectPlayers(15).send({from:account});
+    const tx = await marketcontract.methods.SelectPlayers(15).call({from:account});
     if(!error){
       if(media.matches){
         st3.style.backgroundImage = "url(./players/LowQ/15-Watkins.png)";
@@ -1808,7 +1815,7 @@ async function Submit(){
   const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SubmitTeam().send({from:account});
-    alert("You have recieved a lot of token");
+    alert("You have recieved 50 $BALLER Tokens");
     //work
 }
 let signup = document.getElementById("signup");

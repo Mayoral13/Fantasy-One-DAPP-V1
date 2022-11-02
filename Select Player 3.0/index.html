@@ -1627,7 +1627,6 @@ function selectMahrez(){
     }else
       gk.style.backgroundImage = "url(./players/DefaultQ/1-Leno.png)";
 }     
-alert("You have selected Leno");
   } 
   async function Select2(error){
     let gk1 = document.getElementById("player1");
@@ -1640,7 +1639,6 @@ alert("You have selected Leno");
     }else
     gk1.style.backgroundImage = "url(./players/DefaultQ/2-Henderson.png)";
 }
-alert("You have selected Henderson");
 }
 async function Select3(error){
     let cb1 = document.getElementById("player4");
@@ -1653,7 +1651,6 @@ async function Select3(error){
     }else
     cb1.style.backgroundImage = "url(./players/DefaultQ/3-Gabriel.png)";
 }
-alert("You have selected Gabriel");
 }
 async function Select4(error){
     let lb = document.getElementById("player2");
@@ -1666,7 +1663,6 @@ async function Select4(error){
     }else
     lb.style.backgroundImage = "url(./players/DefaultQ/4-Robertson.png)";
 }
-alert("You have selected Robertson"); 
 }
 async function Select5(error){
     let rb2 = document.getElementById("player5");
@@ -1679,7 +1675,6 @@ async function Select5(error){
     }else
     rb2.style.backgroundImage = "url(./players/DefaultQ/5-Sessegnon.png)";
 }
-alert("You have selected Sessegnon");
 }
 async function Select6(error){
     let rb1 = document.getElementById("player5");
@@ -1692,7 +1687,6 @@ async function Select6(error){
     }else
     rb1.style.backgroundImage = "url(./players/DefaultQ/6-Trippier.png)";
 }
-alert("You have selected Trippier");
 }
 async function Select7(error){
     let cb2 = document.getElementById("player3");
@@ -1705,7 +1699,6 @@ async function Select7(error){
     }else
     cb2.style.backgroundImage = "url(./players/DefaultQ/7-Coady.png)";
 }
-alert("You have selected Coady");
 }
 async function Select8(error){
     let lm = document.getElementById("player6");
@@ -1718,7 +1711,6 @@ async function Select8(error){
     }else
     lm.style.backgroundImage = "url(./players/DefaultQ/8-Son.png)";
 }
-alert("You have selected Son");
 }
 async function Select9(error){
     let cm1 = document.getElementById("player7");
@@ -1731,7 +1723,6 @@ async function Select9(error){
     }else
     cm1.style.backgroundImage = "url(./players/DefaultQ/9-Neves.png)";
 }
-alert("You have selected Neves");
 }
 async function Select10(error){
     let cm2 = document.getElementById("player8");
@@ -1744,7 +1735,6 @@ async function Select10(error){
     }else
     cm2.style.backgroundImage = "url(./players/DefaultQ/10-Bernardo.png)";
 }
-alert("You have selected Bernardo Silva");
 }
 async function Select11(error){
     let cm3 = document.getElementById("player7");
@@ -1757,7 +1747,6 @@ async function Select11(error){
     }else
     cm3.style.backgroundImage = "url(./players/DefaultQ/11-Kante.png)";
 }
-alert("You have selected Kante");
 }
 async function Select12(error){
     let rm = document.getElementById("player9");
@@ -1770,7 +1759,6 @@ async function Select12(error){
     }else
     rm.style.backgroundImage = "url(./players/DefaultQ/12-Mahrez.png)";
 }
-alert("You have selected Mahrez");
 }
 async function Select13(error){
         let st2 = document.getElementById("player10");
@@ -1783,7 +1771,6 @@ async function Select13(error){
     }else
     st2.style.backgroundImage = "url(./players/DefaultQ/13-Haaland.png)";
 }
-alert("You have selected Haaland");
 }
 async function Select14(error){
             let st1 = document.getElementById("player9");
@@ -1796,7 +1783,6 @@ async function Select14(error){
     }else
     st1.style.backgroundImage = "url(./players/DefaultQ/14-Rashford.png)";
 }
-alert("You have selected Rashford");
 }
 async function Select15(error){
     let st3 = document.getElementById("player11");
@@ -1808,15 +1794,13 @@ async function Select15(error){
         st3.style.backgroundImage = "url(./players/LowQ/15-Watkins.png)";
     }else
     st3.style.backgroundImage = "url(./players/DefaultQ/15-Watkins.png)";
-} 
-alert("You have selected Watkins");  
+}  
 }
 async function Submit(){
   const accounts = await ethereum.request({method: 'eth_requestAccounts'});
     const account = accounts[0];
     const tx = await marketcontract.methods.SubmitTeam().send({from:account});
     alert("You have recieved 50 $BALLER Tokens");
-    //work
 }
 let signup = document.getElementById("signup");
 signup.addEventListener("click",()=>{Signup()});
